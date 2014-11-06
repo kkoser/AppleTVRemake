@@ -8,6 +8,7 @@ Window {
     color: "#333333"
 
     property string newMediaType: ""
+    property string oldState: ""
 
     // Key pressing stuff
     Item {
@@ -35,6 +36,7 @@ Window {
                 newMediaType = "Music";
             }
 
+            oldState = state;
             state = newState;
 
         }
@@ -47,6 +49,9 @@ Window {
                 }
                 PropertyChanges {
                     target: iScreenBrowse; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenWelcome; opacity: 0.0
                 }
             },
             State {
@@ -74,7 +79,7 @@ Window {
         anchors.fill: parent
         anchors.centerIn: parent
         color: "#333333"
-        visible: false
+        visible: true
     }
 
     Browse {
@@ -83,13 +88,13 @@ Window {
         anchors.centerIn: parent
         color: "#333333"
         mediaType: newMediaType
-
     }
+
     Welcome {
-        id: iWelcomeScreen
+        id: iScreenWelcome
         anchors.fill: parent
         anchors.centerIn: parent
-        visible: true
+        visible: false
     }
 
 //    Keyboard {
