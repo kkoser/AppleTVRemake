@@ -2,6 +2,7 @@ import QtQuick 2.3
 import QtQuick.Window 2.2
 
 Window {
+    id: iWindow
     visible: true
     width: 1280
     height: 720
@@ -14,7 +15,7 @@ Window {
     Item {
         id: iRoot
         anchors.fill: parent
-        focus: false
+        focus: true
         state: "GUIDE"
         Keys.onPressed: {
             var newState = "GUIDE";
@@ -32,8 +33,7 @@ Window {
             else if(event.key === Qt.Key_Escape)
                 newState = "GUIDE";
             else if(event.key === Qt.Key_Return) {
-                newState = "BROWSE";
-                newMediaType = "Music";
+                newState = "SEARCH"
             }
 
             oldState = state;
@@ -53,11 +53,20 @@ Window {
                 PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
                 }
+                PropertyChanges {
+                    target: iRoot; focus: true
+                }
             },
             State {
                 name: "SEARCH"
                 PropertyChanges {
                     target: iScreenGuide; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iRoot; focus: false
+                }
+                PropertyChanges {
+                    target: iScreenSearch; opacity: 1.0; focus: true
                 }
             },
             State {
@@ -74,6 +83,14 @@ Window {
         ]
     }
 
+    Search {
+        id: iScreenSearch
+        anchors.fill: parent
+        anchors.centerIn: parent
+        color: "#333333"
+        opacity: 0.0
+    }
+
     Guide {
         id: iScreenGuide
         anchors.fill: parent
@@ -88,6 +105,7 @@ Window {
         anchors.centerIn: parent
         color: "#333333"
         mediaType: newMediaType
+        opacity: 0.0
     }
 
     Welcome {
@@ -95,11 +113,5 @@ Window {
         anchors.fill: parent
         anchors.centerIn: parent
         visible: false
-    }
-
-    Keyboard {
-        visible: true
-        keybaordEnabled: true
-        showSelectButton: true
     }
 }
