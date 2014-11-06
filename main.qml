@@ -14,7 +14,7 @@ Window {
     Item {
         id: iRoot
         anchors.fill: parent
-        focus: false
+        focus: true
         state: "GUIDE"
         Keys.onPressed: {
             var newState = "GUIDE";
@@ -98,7 +98,7 @@ Window {
     }
 
     Keyboard {
-        visible: true
+        visible: false
         keybaordEnabled: true
         showSelectButton: true
     }

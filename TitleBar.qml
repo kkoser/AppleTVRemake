@@ -1,13 +1,13 @@
 import QtQuick 2.0
 
 Rectangle {
-    property alias title: iBrowseTitle.text
+    property alias title: iTitle.text
 
     Text {
-        id: iBrowseTitle
+        id: iTitle
         anchors.top: parent.top
         anchors.left: parent.left
-        font.pixelSize: 28
+        font.pixelSize: 26
         color: "white"
         anchors.leftMargin: 0.05*parent.width
         anchors.topMargin: 0.05*parent.height
@@ -17,7 +17,7 @@ Rectangle {
     Rectangle {
         height: 2
         width: 0.9 * parent.width
-        anchors.top: iBrowseTitle.bottom
+        anchors.top: iTitle.bottom
         anchors.topMargin: 5
         anchors.left: parent.left
         anchors.leftMargin: 0.05*parent.width
