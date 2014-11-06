@@ -2,10 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Guide.qml</file>
-<<<<<<< Updated upstream
         <file>Keyboard.qml</file>
-=======
         <file>Welcome.qml</file>
->>>>>>> Stashed changes
     </qresource>
 </RCC>
