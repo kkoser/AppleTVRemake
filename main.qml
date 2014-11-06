@@ -77,7 +77,6 @@ Window {
         visible: false
     }
 
-<<<<<<< HEAD
     Browse {
         id: iScreenBrowse
         anchors.fill: parent
@@ -86,7 +85,6 @@ Window {
         mediaType: newMediaType
 
     }
-=======
     Welcome {
         id: iWelcomeScreen
         anchors.fill: parent
@@ -97,5 +95,4 @@ Window {
 //    Keyboard {
 //        //anchors.centerIn: parent
 //    }
->>>>>>> 363a39219031370e31b508990bb56fb68e03b02d
 }
