@@ -7,38 +7,61 @@ Window {
     height: 768
     color: "#333333"
 
+    property string newMediaType: ""
+
     // Key pressing stuff
     Item {
         id: iRoot
         anchors.fill: parent
         focus: true
-        state: "HOME"
+        state: "GUIDE"
         Keys.onPressed: {
-            if(event.key === Qt.Key_Left)
+            var newState = "GUIDE";
+
+            if(event.key === Qt.Key_Left) {
                 console.log("User clicked on Music");
-            else if(event.key === Qt.Key_Right)
+                newState = "BROWSE";
+                newMediaType = "Music";
+            } else if(event.key === Qt.Key_Right)
                 console.log("User click on TV");
             else if(event.key === Qt.Key_Up)
                 console.log("User clicked on Apps");
             else if(event.key === Qt.Key_Down)
                 console.log("User clicked on Movies");
-            else if(event.key === Qt.Key_Return)
-                console.log("User clicked on universal search");
+            else if(event.key === Qt.Key_Escape)
+                newState = "GUIDE";
+            else if(event.key === Qt.Key_Return) {
+                newState = "BROWSE";
+                newMediaType = "Music";
+            }
 
-            state = state === "HOME" ? "SEARCH" : "HOME";
+            state = newState;
+
         }
 
         states: [
             State {
-                name: "HOME"
+                name: "GUIDE"
                 PropertyChanges {
-                    target: iScreenHome; opacity: 1.0;
+                    target: iScreenGuide; opacity: 1.0
+                }
+                PropertyChanges {
+                    target: iScreenBrowse; opacity: 0.0
                 }
             },
             State {
                 name: "SEARCH"
                 PropertyChanges {
-                    target: iScreenHome; opacity: 0.0
+                    target: iScreenGuide; opacity: 0.0
+                }
+            },
+            State {
+                name: "BROWSE"
+                PropertyChanges {
+                    target: iScreenGuide; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenBrowse; opacity: 1.0
                 }
             }
 
@@ -47,9 +70,18 @@ Window {
     }
 
     Guide {
-        id: iScreenHome
+        id: iScreenGuide
         anchors.fill: parent
         anchors.centerIn: parent
         color: "#333333"
+    }
+
+    Browse {
+        id: iScreenBrowse
+        anchors.fill: parent
+        anchors.centerIn: parent
+        color: "#333333"
+        mediaType: newMediaType
+
     }
 }

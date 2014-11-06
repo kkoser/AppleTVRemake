@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Guide.qml</file>
+        <file>Browse.qml</file>
+        <file>TitleBar.qml</file>
     </qresource>
 </RCC>
