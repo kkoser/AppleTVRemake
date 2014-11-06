@@ -54,7 +54,14 @@ Window {
         visible: false
     }
 
-    Keyboard {
-        //anchors.centerIn: parent
+    Welcome {
+        id: iWelcomeScreen
+        anchors.fill: parent
+        anchors.centerIn: parent
+        visible: true
     }
+
+//    Keyboard {
+//        //anchors.centerIn: parent
+//    }
 }

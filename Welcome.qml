@@ -2,8 +2,20 @@ import QtQuick 2.0
 
 Rectangle {
 
-    id: iSomething
-    width: 100
-    height: 62
-    color: "blue"
+    color: "#333333"
+    width: 500
+    height: 500
+
+    Text {
+        text: "Welcome to TV"
+        color: "white"
+        font.pixelSize: parent.width/25
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.topMargin: parent.height/12
+        anchors.leftMargin: parent.width/12
+    }
+
+
+
 }
