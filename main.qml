@@ -97,7 +97,9 @@ Window {
         visible: false
     }
 
-//    Keyboard {
-//        //anchors.centerIn: parent
-//    }
+    Keyboard {
+        //anchors.centerIn: parent
+        visible: true
+        focus: false
+    }
 }
