@@ -3,8 +3,8 @@ import QtQuick.Window 2.2
 
 Window {
     visible: true
-    width: 1024
-    height: 768
+    width: 1280
+    height: 720
     color: "#333333"
 
     // Key pressing stuff
@@ -51,5 +51,10 @@ Window {
         anchors.fill: parent
         anchors.centerIn: parent
         color: "#333333"
+        visible: false
+    }
+
+    Keyboard {
+        //anchors.centerIn: parent
     }
 }
