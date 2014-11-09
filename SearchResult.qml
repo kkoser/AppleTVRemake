@@ -14,18 +14,18 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
     }
 
-    Text {
+    TextWithFont {
         text: iSearchResult.title
-        color: "white"
         anchors.top: parent.top
         anchors.left: iImage.right
         anchors.leftMargin: iImage.width / 3
+        font.pixelSize: 21
     }
 
-    Text {
+    TextWithFont {
         text: iSearchResult.service
-        color: "white"
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        font.pixelSize: 18
     }
 }
