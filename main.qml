@@ -21,20 +21,20 @@ Window {
             var newState = "GUIDE";
 
             if(event.key === Qt.Key_Left) {
-                console.log("User clicked on Music");
                 newState = "BROWSE";
                 newMediaType = "Music";
-            } else if(event.key === Qt.Key_Right)
-                console.log("User click on TV");
+            }else if(event.key === Qt.Key_Right)
+                console.log("User clicked on TV");
             else if(event.key === Qt.Key_Up)
                 console.log("User clicked on Apps");
             else if(event.key === Qt.Key_Down)
                 console.log("User clicked on Movies");
             else if(event.key === Qt.Key_Escape)
                 newState = "GUIDE";
-            else if(event.key === Qt.Key_Return) {
-                newState = "SEARCH"
-            }
+            else if(event.key === Qt.Key_Return)
+                newState = "SEARCH";
+            else if(event.key === Qt.Key_W)
+                newState = "WELCOME";
 
             oldState = state;
             state = newState;
@@ -58,6 +58,21 @@ Window {
                 }
             },
             State {
+                name: "WELCOME"
+                PropertyChanges {
+                    target: iScreenGuide; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenBrowse; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenWelcome; opacity: 1.0; focus: true
+                }
+                PropertyChanges {
+                    target: iRoot; focus: false
+                }
+            },
+            State {
                 name: "SEARCH"
                 PropertyChanges {
                     target: iScreenGuide; opacity: 0.0
@@ -68,6 +83,9 @@ Window {
                 PropertyChanges {
                     target: iScreenSearch; opacity: 1.0; focus: true
                 }
+                PropertyChanges {
+                    target: iScreenWelcome; opacity: 0.0
+                }
             },
             State {
                 name: "BROWSE"
@@ -77,9 +95,10 @@ Window {
                 PropertyChanges {
                     target: iScreenBrowse; opacity: 1.0
                 }
+                PropertyChanges {
+                    target: iScreenWelcome; opacity: 0.0
+                }
             }
-
-
         ]
     }
 
@@ -99,6 +118,15 @@ Window {
         visible: true
     }
 
+    Welcome {
+        id: iScreenWelcome
+        anchors.fill: parent
+        anchors.centerIn: parent
+        color: "#333333"
+        opacity: 0.0
+        onFocusChanged: console.log("Welcome focus is " + focus)
+    }
+
     Browse {
         id: iScreenBrowse
         anchors.fill: parent
@@ -108,10 +136,4 @@ Window {
         opacity: 0.0
     }
 
-    Welcome {
-        id: iScreenWelcome
-        anchors.fill: parent
-        anchors.centerIn: parent
-        visible: false
-    }
 }

@@ -7,6 +7,7 @@
         <file>Keyboard.qml</file>
         <file>Welcome.qml</file>
         <file>Search.qml</file>
+        <file>SelectorList.qml</file>
         <file>SearchResult.qml</file>
         <file>images/clock-night.png</file>
         <file>images/LegoMovie.jpg</file>
