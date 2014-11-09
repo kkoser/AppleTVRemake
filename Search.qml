@@ -75,10 +75,8 @@ Rectangle {
             service: "Netflix"
             imageURL: "LegoMovie.jpg"
             width: iResultsTitle.width*.9
-            //anchors.right: iResultsTitle.right
-            //anchors.rightMargin: .1*width
             height: 200
-            color: "#333300"
+            color: "#333333"
         }
     }
 
