@@ -19,15 +19,15 @@ Rectangle {
         height: parent.height
         color: "#333333"
 
-        title: "Welcome to tv"
+        title: "Welcome to  tv"
     }
 
-    Text {
+    TextWithFont {
         id: iWifi
         text: "<b>Connect to WiFi</b> > Sign in to iCloud > Set Up Services"
         font.pixelSize: 21
         anchors.top: parent.top
-        anchors.topMargin: 0.12*parent.height
+        anchors.topMargin: 0.13*parent.height
         anchors.left: iWelcomeTitle.left
         anchors.leftMargin: 0.05*parent.width
         color: "white"
@@ -37,18 +37,18 @@ Rectangle {
         height: 1
         width: 0.9 * parent.width
         anchors.top: iWifi.bottom
-        anchors.topMargin: 10
+        anchors.topMargin: 16
         anchors.left: parent.left
         anchors.leftMargin: 0.05*parent.width
     }
 
-    Text {
+    TextWithFont {
         id: iNetworks
         text: "Networks"
         font.pixelSize: 24
         font.underline: true
         anchors.top: parent.top
-        anchors.topMargin: 0.22*parent.height
+        anchors.topMargin: 0.23*parent.height
         anchors.left: iWelcomeTitle.left
         anchors.leftMargin: 0.05*parent.width
         color: "white"
@@ -57,7 +57,7 @@ Rectangle {
     SelectorList {
         anchors.top: parent.top
         anchors.left: iWelcomeTitle.left
-        anchors.topMargin: 0.28*parent.height
+        anchors.topMargin: 0.29*parent.height
         anchors.leftMargin: 0.05*parent.width
         focus: iWelcome.focus
         onFocusChanged: console.log("Focus is" + focus)

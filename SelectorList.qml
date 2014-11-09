@@ -20,7 +20,7 @@ Rectangle {
         anchors.bottomMargin: parent.height/8
         anchors.left: parent.left
         anchors.right: parent.right
-        spacing: 10
+        spacing: 8
 
         focus: iSelectorList.focus
 
@@ -61,15 +61,13 @@ Rectangle {
                     }
                 }
 
-//                lineHeight: 200
-
-                Text {
+                TextWithFont {
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                     anchors.leftMargin: 10
                     color: "white"
                     text: modelData
-                    font.pixelSize: 18
+                    font.pixelSize: 21
                 }
             }
         }
