@@ -12,5 +12,6 @@
         <file>images/clock-night.png</file>
         <file>images/LegoMovie.jpg</file>
         <file>TextWithFont.qml</file>
+        <file>Detail.qml</file>
     </qresource>
 </RCC>

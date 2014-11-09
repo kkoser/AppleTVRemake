@@ -35,6 +35,8 @@ Window {
                 newState = "SEARCH";
             else if(event.key === Qt.Key_W)
                 newState = "WELCOME";
+            else if(event.key === Qt.Key_D)
+                newState = "DETAIL";
 
             oldState = state;
             state = newState;
@@ -54,6 +56,9 @@ Window {
                     target: iScreenWelcome; opacity: 0.0
                 }
                 PropertyChanges {
+                    target: iScreenDetail; opacity: 0.0
+                }
+                PropertyChanges {
                     target: iRoot; focus: true
                 }
             },
@@ -67,6 +72,27 @@ Window {
                 }
                 PropertyChanges {
                     target: iScreenWelcome; opacity: 1.0; focus: true
+                }
+                PropertyChanges {
+                    target: iScreenDetail; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iRoot; focus: false
+                }
+            },
+            State {
+                name: "DETAIL"
+                PropertyChanges {
+                    target: iScreenGuide; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenBrowse; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenWelcome; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenDetail; opacity: 1.0; focus: true
                 }
                 PropertyChanges {
                     target: iRoot; focus: false
@@ -84,6 +110,9 @@ Window {
                     target: iScreenSearch; opacity: 1.0; focus: true
                 }
                 PropertyChanges {
+                    target: iScreenDetail; opacity: 0.0
+                }
+                PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
                 }
             },
@@ -94,6 +123,9 @@ Window {
                 }
                 PropertyChanges {
                     target: iScreenBrowse; opacity: 1.0
+                }
+                PropertyChanges {
+                    target: iScreenDetail; opacity: 0.0
                 }
                 PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
@@ -124,7 +156,14 @@ Window {
         anchors.centerIn: parent
         color: "#333333"
         opacity: 0.0
-        onFocusChanged: console.log("Welcome focus is " + focus)
+    }
+
+    Detail {
+        id: iScreenDetail
+        anchors.fill: parent
+        anchors.centerIn: parent
+        color: "#333333"
+        opacity: 0.0
     }
 
     Browse {
