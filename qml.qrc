@@ -7,5 +7,6 @@
         <file>Keyboard.qml</file>
         <file>Welcome.qml</file>
         <file>Search.qml</file>
+        <file>SelectorList.qml</file>
     </qresource>
 </RCC>

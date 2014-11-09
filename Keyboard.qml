@@ -32,7 +32,6 @@ Rectangle {
             case Qt.Key_Left:
                 if(selectedKey == keys.length +1)
                     break; //Submit button, so cant go left or right
-
                 var col = selectedKey % columns;
                 if(col <= 0)
                     selectedKey += columns - 1;
@@ -42,7 +41,6 @@ Rectangle {
             case Qt.Key_Right:
                 if(selectedKey == keys.length +1)
                     break; //Submit button, so cant go left or right
-
                 var col = selectedKey % columns;
                 if(col >= columns - 1)
                     selectedKey -= columns -1
