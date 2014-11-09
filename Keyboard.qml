@@ -8,9 +8,11 @@ Rectangle {
     property int selectedKey: 0
     property alias keybaordEnabled: iGrid.focus
     property bool showSelectButton: true
+    property bool allowsScrollingOff: false
 
     signal letterClicked(string letter)
     signal submitClicked()
+    signal cursorMovedOffRight()
 
     width: 360
     height: 500
@@ -42,8 +44,12 @@ Rectangle {
                 if(selectedKey == keys.length +1)
                     break; //Submit button, so cant go left or right
                 var col = selectedKey % columns;
-                if(col >= columns - 1)
-                    selectedKey -= columns -1
+                if(col >= columns - 1) {
+                    if(allowsScrollingOff)
+                        cursorMovedOffRight();
+                    else
+                        selectedKey -= columns -1
+                }
                 else
                     selectedKey++;
                 break;

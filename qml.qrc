@@ -13,5 +13,22 @@
         <file>images/LegoMovie.jpg</file>
         <file>TextWithFont.qml</file>
         <file>Detail.qml</file>
+        <file>images/1989.jpg</file>
+        <file>images/ArrestedDevelopment.jpg</file>
+        <file>images/Avengers.jpg</file>
+        <file>images/Beyonce.png</file>
+        <file>images/BurnNotice.jpg</file>
+        <file>images/Darkside.jpg</file>
+        <file>images/HungerGames.jpg</file>
+        <file>images/Interstellar.jpg</file>
+        <file>images/Korra.jpg</file>
+        <file>images/LionKing.jpg</file>
+        <file>images/OfMonstersAndMen.jpg</file>
+        <file>images/Scrubs.jpg</file>
+        <file>images/StarTrek.jpg</file>
+        <file>images/TheSimpsons.jpg</file>
+        <file>images/TopGear.jpg</file>
+        <file>images/VForVendetta.jpg</file>
+        <file>images/XY.png</file>
     </qresource>
 </RCC>

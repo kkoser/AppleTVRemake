@@ -41,11 +41,14 @@ Rectangle {
     Keyboard {
         id: iKeyboard
         keybaordEnabled: iSearch.focus
+        allowsScrollingOff: true
         anchors.left: parent.left
         anchors.top: iTextSearch.bottom
         anchors.leftMargin: parent.width / 20
         anchors.topMargin: parent.height / 15
+
         onLetterClicked: iTextSearch.text += letter
+        onCursorMovedOffRight: console.log("Need to move over to search result");
     }
 
 
