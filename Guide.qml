@@ -31,9 +31,10 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
 
-                Text {
+                TextWithFont {
                     anchors.centerIn: parent
                     text: "Search"
+                    color: "black"
                     font.pixelSize: 28
                 }
 
@@ -79,42 +80,37 @@ Rectangle {
         }
     }
 
-    Text {
+    TextWithFont {
         text: "Apps"
-        color: "white"
         font.pixelSize: 25
         anchors.bottom: iLargeCircle.top
         anchors.bottomMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
     }
-    Text {
+    TextWithFont {
         text: "Movies"
-        color: "white"
         font.pixelSize: 25
         anchors.top: iLargeCircle.bottom
         anchors.topMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
     }
-    Text {
+    TextWithFont {
         text: "TV"
-        color: "white"
         font.pixelSize: 25
         anchors.left: iLargeCircle.right
         anchors.leftMargin: 20
         anchors.verticalCenter: parent.verticalCenter
     }
-    Text {
+    TextWithFont {
         text: "Music"
-        color: "white"
         font.pixelSize: 25
         anchors.right: iLargeCircle.left
         anchors.rightMargin: 20
         anchors.verticalCenter: parent.verticalCenter
     }
 
-    Text {
+    TextWithFont {
         text: "Press Guide to dismiss"
-        color: "white"
         font.pixelSize: 15
         anchors.right: parent.right
         anchors.rightMargin: 10

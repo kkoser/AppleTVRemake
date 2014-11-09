@@ -11,5 +11,6 @@
         <file>SearchResult.qml</file>
         <file>images/clock-night.png</file>
         <file>images/LegoMovie.jpg</file>
+        <file>TextWithFont.qml</file>
     </qresource>
 </RCC>

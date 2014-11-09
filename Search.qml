@@ -20,7 +20,7 @@ Rectangle {
 
     // Search Section
 
-    Text {
+    TextWithFont {
         id: iTextSearch
         text: ""
         anchors.top: parent.top
@@ -28,8 +28,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: parent.width/20
         width: iKeyboard.width
-        color: "white"
-        font.pixelSize: 20
+        font.pixelSize: 21
     }
     Rectangle {
         height: 1
@@ -56,6 +55,7 @@ Rectangle {
         id: iResultsTitle
         width: parent.width / 2
         anchors.right: iTitleBar.right
+        anchors.rightMargin: width / 20
         height: parent.height / 10
         anchors.top: iTitleBar.bottom
         //anchors.topMargin: height / 10
@@ -65,7 +65,7 @@ Rectangle {
     }
 
     Column {
-        width: parent.width/2
+        width: iResultsTitle.width
         anchors.right: iTitleBar.right
         anchors.top: iResultsTitle.bottom
         spacing: 2
@@ -74,9 +74,11 @@ Rectangle {
             title: "Lego Movie"
             service: "Netflix"
             imageURL: "LegoMovie.jpg"
-            width: iResultsTitle.width
+            width: iResultsTitle.width*.9
+            //anchors.right: iResultsTitle.right
+            //anchors.rightMargin: .1*width
             height: 200
-            color: "#333333"
+            color: "#333300"
         }
     }
 
