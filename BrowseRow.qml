@@ -23,7 +23,7 @@ Rectangle {
 
     Row {
         anchors.top: iRowLabel.bottom
-        anchors.topMargin: 15
+        anchors.topMargin: 10
         anchors.left: iRowLabel.left
         spacing: 30
 

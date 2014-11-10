@@ -5,7 +5,7 @@ import QtQuick.Controls.Styles 1.2
 Rectangle {
     id: iKeyboard
     property string keys: "ABCDEFGHIJKLMNOPQRSTUVWXYZ., "
-    property int selectedKey: 0
+    property int selectedKey: keys.length + 2
     property alias keybaordEnabled: iGrid.focus
     property bool showSelectButton: true
     property bool allowsScrollingOff: false
@@ -114,7 +114,7 @@ Rectangle {
     Button {
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
-        width: parent.width / 3
+        width: parent.width / 2.5
         height: parent.height / 10
         visible: showSelectButton
         style: ButtonStyle {
@@ -128,7 +128,7 @@ Rectangle {
 
         TextWithFont {
             anchors.centerIn: parent
-            text: "Submit"
+            text: "Voice Search"
             font.pixelSize: 21
         }
         onClicked: {

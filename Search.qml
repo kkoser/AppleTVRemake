@@ -42,6 +42,7 @@ Rectangle {
         id: iKeyboard
         keybaordEnabled: iSearch.focus
         allowsScrollingOff: true
+        showSelectButton: true // @todo: MAKE THIS FALSE, FIX SUBMIT BUTTON NAME
         anchors.left: parent.left
         anchors.top: iTextSearch.bottom
         anchors.leftMargin: parent.width / 20
@@ -49,9 +50,7 @@ Rectangle {
 
         onLetterClicked: iTextSearch.text += letter
         onDeleteClicked: iTextSearch.text = iTextSearch.text.substring(0, iTextSearch.text.length - 1)
-        //onDeleteClicked: console.log("Deleting letter")
 
-        onSubmitClicked: console.log("Submitting search")
         onCursorMovedOffRight: console.log("Need to move over to search result");
     }
 
