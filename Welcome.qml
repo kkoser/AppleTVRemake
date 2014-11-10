@@ -44,8 +44,6 @@ Rectangle {
         anchors.leftMargin: 0.05*parent.width
     }
 
-
-
     TextWithFont {
         id: iNetworks
         text: "Networks"
