@@ -13,6 +13,8 @@ Rectangle {
         NumberAnimation { duration: 200 }
     }
 
+
+
     TitleBar {
         id: iWelcomeTitle
         width: parent.width
@@ -42,6 +44,8 @@ Rectangle {
         anchors.leftMargin: 0.05*parent.width
     }
 
+
+
     TextWithFont {
         id: iNetworks
         text: "Networks"
@@ -62,6 +66,38 @@ Rectangle {
         focus: iWelcome.focus
         onFocusChanged: console.log("Focus is" + focus)
     }
+
+    Rectangle {
+        Image {
+            source: "./images/wifi.png"
+            x: 210
+            y: 218
+            width: 20
+            height: 20
+            fillMode: Image.PreserveAspectFit
+        }
+    }
+    Rectangle {
+        Image {
+            source: "./images/wifi.png"
+            x: 210
+            y: 266
+            width: 20
+            height: 20
+            fillMode: Image.PreserveAspectFit
+        }
+    }
+    Rectangle {
+        Image {
+            source: "./images/wifi.png"
+            x: 210
+            y: 314
+            width: 20
+            height: 20
+            fillMode: Image.PreserveAspectFit
+        }
+    }
+
 
 
 }

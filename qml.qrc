@@ -13,5 +13,7 @@
         <file>images/LegoMovie.jpg</file>
         <file>TextWithFont.qml</file>
         <file>Detail.qml</file>
+        <file>images/tomato.png</file>
+        <file>images/wifi.png</file>
     </qresource>
 </RCC>

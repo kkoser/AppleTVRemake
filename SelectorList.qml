@@ -49,7 +49,7 @@ Rectangle {
            model: networks
             Button {
               property bool selected: modelData == networks[i]
-                width: 140
+                width: 180
                 height: 40
 
                 style: ButtonStyle {
