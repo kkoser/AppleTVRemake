@@ -23,8 +23,8 @@ Rectangle {
     TextWithFont {
         id: iTextSearch
         text: ""
-        anchors.top: parent.top
-        anchors.topMargin: iTitleBar.height *1.3
+        anchors.top: iResultsTitle.top
+        anchors.topMargin: 19
         anchors.left: parent.left
         anchors.leftMargin: parent.width/20
         width: iKeyboard.width
@@ -67,7 +67,7 @@ Rectangle {
         //anchors.topMargin: height / 10
         color: "#333333"
 
-        title: "Results"
+        title: "Results for \"" + iTextSearch.text + "\""
     }
 
     Column {
@@ -77,7 +77,7 @@ Rectangle {
         spacing: 2
 
         SearchResult{
-            title: "Lego Movie"
+            title: "The Lego Movie"
             service: "Netflix"
             imageURL: "LegoMovie.jpg"
             width: iResultsTitle.width*.9
