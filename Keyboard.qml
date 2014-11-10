@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.2
 
 Rectangle {
     id: iKeyboard
-    property string keys: "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,␣"
+    property string keys: "ABCDEFGHIJKLMNOPQRSTUVWXYZ., "
     property int selectedKey: 0
     property alias keybaordEnabled: iGrid.focus
     property bool showSelectButton: true

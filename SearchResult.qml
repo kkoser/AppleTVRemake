@@ -15,6 +15,7 @@ Rectangle {
     }
 
     TextWithFont {
+        id: iTextTitle
         text: iSearchResult.title
         anchors.top: parent.top
         anchors.left: iImage.right
@@ -24,8 +25,9 @@ Rectangle {
 
     TextWithFont {
         text: iSearchResult.service
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        anchors.left: iTextTitle.left
+        anchors.top: iTextTitle.bottom
+        anchors.topMargin: 10
         font.pixelSize: 18
     }
 }
