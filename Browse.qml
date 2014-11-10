@@ -65,7 +65,11 @@ Rectangle {
             break;
         case Qt.Key_Return:
             break;
+        case Qt.Key_Escape:
+            iRoot.state = "GUIDE";
+            break;
         }
+
         if(selectedRow === 0) {
             recentsSelectedIndex = overallSelectedIndex;
             topRatedSelectedIndex = -1;
