@@ -32,5 +32,12 @@
         <file>images/TopGear.jpg</file>
         <file>images/VForVendetta.jpg</file>
         <file>images/XY.png</file>
+        <file>images/Arrow.jpg</file>
+        <file>images/GameOfThrones.jpg</file>
+        <file>images/OnceUponATime.jpg</file>
+        <file>images/Pokemon.png</file>
+        <file>images/Portlandia.jpg</file>
+        <file>images/TheOffice.jpg</file>
+        <file>images/WhiteCollar.jpg</file>
     </qresource>
 </RCC>
