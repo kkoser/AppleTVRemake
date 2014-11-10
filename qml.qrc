@@ -68,5 +68,8 @@
         <file>images/Tangled.jpg</file>
         <file>images/Titanic.jpg</file>
         <file>images/Inception.jpg</file>
+        <file>images/GrandBudapest.jpg</file>
+        <file>images/GoneGirl.jpg</file>
+        <file>images/BigHero6.jpg</file>
     </qresource>
 </RCC>
