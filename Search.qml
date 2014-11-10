@@ -24,7 +24,7 @@ Rectangle {
         id: iTextSearch
         text: ""
         anchors.top: iResultsTitle.top
-        anchors.topMargin: 19
+        anchors.topMargin: 17
         anchors.left: parent.left
         anchors.leftMargin: parent.width/20
         width: iKeyboard.width
@@ -46,7 +46,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.top: iTextSearch.bottom
         anchors.leftMargin: parent.width / 20
-        anchors.topMargin: parent.height / 15
+        anchors.topMargin: parent.height / 25
 
         onLetterClicked: iTextSearch.text += letter
         onDeleteClicked: iTextSearch.text = iTextSearch.text.substring(0, iTextSearch.text.length - 1)
