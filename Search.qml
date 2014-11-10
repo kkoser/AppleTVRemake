@@ -48,6 +48,10 @@ Rectangle {
         anchors.topMargin: parent.height / 15
 
         onLetterClicked: iTextSearch.text += letter
+        onDeleteClicked: iTextSearch.text = iTextSearch.text.substring(0, iTextSearch.text.length - 1)
+        //onDeleteClicked: console.log("Deleting letter")
+
+        onSubmitClicked: console.log("Submitting search")
         onCursorMovedOffRight: console.log("Need to move over to search result");
     }
 

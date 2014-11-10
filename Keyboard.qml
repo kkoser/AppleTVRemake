@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.2
 
 Rectangle {
     id: iKeyboard
-    property string keys: "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,/?"
+    property string keys: "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,␣"
     property int selectedKey: 0
     property alias keybaordEnabled: iGrid.focus
     property bool showSelectButton: true
@@ -12,6 +12,7 @@ Rectangle {
 
     signal letterClicked(string letter)
     signal submitClicked()
+    signal deleteClicked()
     signal cursorMovedOffRight()
 
     width: 360
@@ -59,13 +60,18 @@ Rectangle {
                 }
                 break;
             case Qt.Key_Down:
-                if(selectedKey + columns < keys.length)
+                if(selectedKey + columns < keys.length + 1)
                     selectedKey += columns;
                 else if(showSelectButton)
-                    selectedKey = keys.length + 1; //The submit button
+                    selectedKey = keys.length + 2; //The submit button
                 break;
             case Qt.Key_Return:
-                letterClicked(keys.charAt(selectedKey));
+                if(selectedKey < keys.length)
+                    letterClicked(keys.charAt(selectedKey));
+                else if(selectedKey === keys.length)
+                    deleteClicked();
+                else
+                    submitClicked();
                 break;
             }
         }
@@ -74,7 +80,7 @@ Rectangle {
         columns: 5
 
         Repeater {
-            model: keys.length
+            model: keys.length + 1
             Button {
                 property bool selected: index == selectedKey
                 width: 70
@@ -84,19 +90,22 @@ Rectangle {
                         color: "#333333"
                         border.width: selected ? .5 : 0
                         border.color: "white"
+                        radius: 5
                     }
                 }
 
-                Text{
+                TextWithFont {
                     anchors.centerIn: parent
-                    color: "white"
-                    text: {
-                        keys.charAt( index );
-                    }
+                    font.pixelSize: 16
+                    text: index < keys.length ? keys[index] : "Delete"
                 }
                 onClicked: {
-                    selectedKey = index;
-                    letterClicked( keys.charAt(index) )
+                    if(index < keys.length) {
+                        letterClicked(keys[index]);
+                    }
+                    else {
+                        deleteClicked();
+                    }
                 }
             }
         }
@@ -111,14 +120,13 @@ Rectangle {
         style: ButtonStyle {
             background: Rectangle {
                 color: "#333333"
-                border.width: selectedKey === keys.length + 1
+                border.width: selectedKey === keys.length + 2
                 border.color: "white"
             }
         }
 
-        Text{
+        TextWithFont {
             anchors.centerIn: parent
-            color: "white"
             text: "Submit"
         }
         onClicked: {

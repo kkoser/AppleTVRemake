@@ -117,4 +117,13 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 10
     }
+
+    TextWithFont {
+        text: " tv"
+        font.pixelSize: 24
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.topMargin: 15
+        anchors.leftMargin: 15
+    }
 }
