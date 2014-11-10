@@ -53,5 +53,20 @@
         <file>images/LordePureHeroine.jpg</file>
         <file>images/OneDirectionMidnightMemories.jpg</file>
         <file>images/PassengerWhispers.jpg</file>
+        <file>BrowseRow.qml</file>
+        <file>images/Frozen.jpg</file>
+        <file>images/Aladdin.jpg</file>
+        <file>images/Anchorman.jpg</file>
+        <file>images/BlackSwan.jpg</file>
+        <file>images/Brave.jpg</file>
+        <file>images/DarkKnight.jpg</file>
+        <file>images/Godzilla.jpg</file>
+        <file>images/LesMis.jpg</file>
+        <file>images/Millers.jpg</file>
+        <file>images/Neighbors.jpg</file>
+        <file>images/Ralph.jpg</file>
+        <file>images/Tangled.jpg</file>
+        <file>images/Titanic.jpg</file>
+        <file>images/Inception.jpg</file>
     </qresource>
 </RCC>
