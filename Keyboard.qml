@@ -122,12 +122,14 @@ Rectangle {
                 color: "#333333"
                 border.width: selectedKey === keys.length + 2
                 border.color: "white"
+                radius: 5
             }
         }
 
         TextWithFont {
             anchors.centerIn: parent
             text: "Submit"
+            font.pixelSize: 21
         }
         onClicked: {
             selectedKey = keys.length + 1;
