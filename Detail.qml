@@ -4,6 +4,8 @@ Rectangle {
 
     id: iDetail
 
+    property var itemInfo: ({})
+
     Keys.onPressed: if(event.key === Qt.Key_Escape) iRoot.state = "GUIDE";
 
     Behavior on opacity {
@@ -15,12 +17,12 @@ Rectangle {
         width: parent.width
         height: parent.height
         color: "#333333"
-        title: "The Lego Movie"
+        title: itemInfo["name"]
     }
 
     TextWithFont {
         color: "white"
-        text: "NETFLIX"
+        text: itemInfo["source"]
         anchors.top: parent.top
         anchors.topMargin: 43
         anchors.left: parent.left
@@ -43,7 +45,7 @@ Rectangle {
         Rectangle {
             Image {
                 id: iImage2
-                source: "./images/LegoMovie.jpg"
+                source: itemInfo["posterURL"]
                 anchors.top: parent.top
                 anchors.topMargin: 120
                 anchors.left: parent.left

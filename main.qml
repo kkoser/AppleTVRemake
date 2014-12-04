@@ -218,6 +218,7 @@ Window {
         anchors.centerIn: parent
         color: "#333333"
         opacity: 0.0
+        itemInfo: ({name: "The Lego Movie", posterURL: "images/LegoMovie.jpg", source: "Netflix"})
     }
 
     Browse {
