@@ -92,5 +92,6 @@
         <file>images/Blink182.jpg</file>
         <file>images/Beyonce.jpg</file>
         <file>Settings.qml</file>
+        <file>Apps.qml</file>
     </qresource>
 </RCC>

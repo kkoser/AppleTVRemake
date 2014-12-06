@@ -181,13 +181,19 @@ Window {
                     target: iScreenGuide; opacity: 0.0
                 }
                 PropertyChanges {
-                    target: iScreenMovies; opacity: 1.0
+                    target: iScreenMovies; opacity: 0.0
                 }
                 PropertyChanges {
                     target: iScreenDetail; opacity: 0.0
                 }
                 PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenApps; opacity: 1.0; focus: true
+                }
+                PropertyChanges {
+                    target: iRoot; focus: false
                 }
             },
             State {
@@ -274,5 +280,13 @@ Window {
         recentsElements: [{name: "1989", posterURL: "images/1989.jpg", mediaType: "Music"},{name: "X & Y", posterURL: "images/XY.jpg", mediaType: "Music"},{name: "Port of Morrow", posterURL: "images/PortOfMorrow.jpg", mediaType: "Music"},{name: "AM", posterURL: "images/AM.jpg", mediaType: "Music"},{name: "Whispers", posterURL: "images/Whispers.jpg", mediaType: "Music"},{name: "Midnight Memories", posterURL: "images/MidnightMemories.jpg", mediaType: "Music"},{name: "Of Monsters and Men", posterURL: "images/OfMonstersAndMen.jpg", mediaType: "Music"},{name: "Pure Heroine", posterURL: "images/PureHeroine.jpg", mediaType: "Music"}]
         topRatedElements: [{name: "Born To Die", posterURL: "images/BornToDie.jpg", mediaType: "Music"},{name: "Night Visions", posterURL: "images/NightVisions.jpg", mediaType: "Music"}, {name: "Recovery", posterURL: "images/Recovery.jpg", mediaType: "Music"},{name: "X", posterURL: "images/X.jpg", mediaType: "Music"},{name: "Drake", posterURL: "images/Drake.jpg", mediaType: "Music"}, {name: "Dark Side of the Moon", posterURL: "images/Darkside.jpg", mediaType: "Music"}, {name: "Ghost Stories", posterURL: "images/GhostStories.jpg", mediaType: "Music"}, {name: "Beyonce", posterURL: "images/Beyonce.jpg", mediaType: "Music"}]
         newReleasesElements: [{name: "My Everything", posterURL: "images/MyEverything.jpg", mediaType: "Music"},{name: "Awesome Wave", posterURL: "images/AwesomeWave.jpg", mediaType: "Music"},{name: "Conditions", posterURL: "images/Conditions.jpg", mediaType: "Music"},{name: "The Bones of What You Believe", posterURL: "images/TheBonesOfWhatYouBelieve.jpg", mediaType: "Music"},{name: "blink-182", posterURL: "images/Blink182.jpg", mediaType: "Music"},{name: "Modern Vampires Of The City", posterURL: "images/ModernVampiresOfTheCity.jpg", mediaType: "Music"},{name: "Elephant Shell", posterURL: "images/ElephantShell.jpg", mediaType: "Music"},{name: "Drops Of Jupiter", posterURL: "images/DropsOfJupiter.jpg", mediaType: "Music"}]
+    }
+
+    Apps {
+        id: iScreenApps
+        anchors.fill: parent
+        anchors.centerIn: parent
+        color: "#333333"
+        opacity: 0.0
     }
 }
