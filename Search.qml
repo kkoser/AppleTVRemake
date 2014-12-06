@@ -36,7 +36,7 @@ Rectangle {
     Keys.onPressed: {
         console.log("Recieved key" + event.key)
         if(event.key === Qt.Key_Escape && iSearch.stateReady)
-            iRoot.state = "GUIDE";
+            iRoot.setState("GUIDE");
         else if(event.key === Qt.Key_Escape)
             iSearch.stateReady = true;
         else if(event.key === Qt.Key_Return && iResultsListView.currentIndex >= 0)

@@ -10,7 +10,7 @@ Rectangle {
 
     Keys.onPressed: {
         if(event.key == Qt.Key_G)
-            iRoot.state = "GUIDE"
+            iRoot.setState("GUIDE");
         if(event.key === Qt.Key_Escape) {
             console.log("Detail back"); iDetail.back();
         }

@@ -17,18 +17,24 @@ Window {
         anchors.fill: parent
         focus: true
         state: "GUIDE"
-        property variant oldStates: ["GUIDE"]
+        property string oldState
         function setState(newState) {
-            oldStates.push(state);
+            console.log("Moving from state " + state + " to " + newState);
+            oldState = state;
             state = newState;
         }
 
         function back() {
-            state = oldStates.length >= 1 ? oldStates[oldStates.length] : "GUIDE";
-            oldStates.pop();
+            console.log("Old state is" + oldState);
+            state = oldState == "" ? "GUIDE" : oldState
+            oldState = "";
         }
 
         Keys.onPressed: {
+            if(event.key === Qt.Key_G) {
+                back();
+                return;
+            }
             var newState = "GUIDE";
 
             if(event.key === Qt.Key_Left) {
@@ -49,8 +55,6 @@ Window {
                 newState = "SEARCH";
             else if(event.key === Qt.Key_W)
                 newState = "WELCOME";
-            else if(event.key === Qt.Key_D)
-                newState = "DETAIL";
 
             setState(newState);
 
@@ -221,15 +225,6 @@ Window {
         anchors.centerIn: parent
         color: "#333333"
         opacity: 0.0
-    }
-
-    Detail {
-        id: iScreenDetail
-        anchors.fill: parent
-        anchors.centerIn: parent
-        color: "#333333"
-        opacity: 0.0
-        itemInfo: ({name: "The Lego Movie", posterURL: "images/LegoMovie.jpg", source: "Netflix"})
     }
 
     Browse {
