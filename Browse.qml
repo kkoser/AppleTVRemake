@@ -14,6 +14,12 @@ Rectangle {
     property int newReleasesSelectedIndex: -1
     property int selectedRow: 0; // 0 is recents, 1 is top rated, 2 is new releases
 
+    // This property is needed because the escape key will be caught and handled
+    // By both the detail screen and this screen. So this property
+    // is used to catch that and prevent it form going all the way
+    // back to the guide menu
+    property bool stateReady: true
+
     Behavior on opacity {
         NumberAnimation { duration: 200 }
     }
@@ -64,9 +70,27 @@ Rectangle {
             }
             break;
         case Qt.Key_Return:
+            switch(selectedRow) {
+            case 0:
+                iScreenDetail.itemInfo = recentsElements[recentsSelectedIndex];
+                break;
+            case 1:
+                iScreenDetail.itemInfo = topRatedElements[topRatedSelectedIndex];
+                break;
+            case 2:
+                iScreenDetail.itemInfo = newReleasesElements[newReleasesSelectedIndex];
+                break;
+            default:
+                break;
+            }
+            state = "DETAIL";
             break;
         case Qt.Key_Escape:
-            iRoot.state = "GUIDE";
+            console.log("Trying to escape with state " + stateReady);
+            if(stateReady)
+                iRoot.setState("GUIDE");
+            else
+                stateReady = true;
             break;
         }
 
@@ -84,6 +108,27 @@ Rectangle {
             newReleasesSelectedIndex = overallSelectedIndex;
         }
     }
+
+    states: [
+        State {
+            name: "BROWSE"
+            PropertyChanges {
+                target: iScreenDetail; opacity: 0.0; focus: false
+            }
+            PropertyChanges {
+                target: iBrowse; opacity: 1.0; focus: true; stateReady: false
+            }
+        },
+        State {
+            name: "DETAIL"
+            PropertyChanges {
+                target: iScreenDetail; opacity: 1.0; focus: true
+            }
+            PropertyChanges {
+                target: iBrowse; opacity: 1.0; focus: false; stateReady: false
+            }
+        }
+    ]
 
     TitleBar {
         id: iBrowseTitle
@@ -128,6 +173,14 @@ Rectangle {
         isSquare: false
         selectedIndex: newReleasesSelectedIndex
 
+    }
+
+    Detail {
+        id: iScreenDetail
+        anchors.fill: parent
+        opacity: 0.0
+        onBack: iBrowse.state = "BROWSE"
+        itemInfo: topRatedElements[0]
     }
 
 }

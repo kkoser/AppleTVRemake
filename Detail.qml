@@ -6,7 +6,9 @@ Rectangle {
 
     property var itemInfo: ({})
 
-    Keys.onPressed: if(event.key === Qt.Key_Escape) iRoot.state = "GUIDE";
+    signal back();
+
+    Keys.onPressed: if(event.key === Qt.Key_Escape) {console.log("Detail back"); iDetail.back();}
 
     Behavior on opacity {
         NumberAnimation { duration: 200 }
@@ -42,16 +44,17 @@ Rectangle {
         rows: 1
         columns: 2
 
-        Rectangle {
-            Image {
-                id: iImage2
-                source: itemInfo["posterURL"]
-                anchors.top: parent.top
-                anchors.topMargin: 120
-                anchors.left: parent.left
-                anchors.leftMargin: 69
-                fillMode: Image.PreserveAspectFit
-            }
+        Image {
+            id: iImage2
+            source: itemInfo["posterURL"]
+            anchors.top: parent.top
+            anchors.topMargin: 120
+            anchors.left: parent.left
+            anchors.leftMargin: iDetailTitle.leftMargin
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 100
+            width: 1/3*parent.width
+            fillMode: Image.PreserveAspectFit
         }
 
         Rectangle {
@@ -248,14 +251,6 @@ Rectangle {
                     font.pixelSize: 18
                 }
             }
-
         }
-
     }
-
-
-
-
-
-
 }

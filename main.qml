@@ -17,6 +17,17 @@ Window {
         anchors.fill: parent
         focus: true
         state: "GUIDE"
+        property variant oldStates: ["GUIDE"]
+        function setState(newState) {
+            oldStates.push(state);
+            state = newState;
+        }
+
+        function back() {
+            state = oldStates.length >= 1 ? oldStates[oldStates.length] : "GUIDE";
+            oldStates.pop();
+        }
+
         Keys.onPressed: {
             var newState = "GUIDE";
 
@@ -41,8 +52,7 @@ Window {
             else if(event.key === Qt.Key_D)
                 newState = "DETAIL";
 
-            oldState = state;
-            state = newState;
+            setState(newState);
 
         }
 
@@ -194,6 +204,7 @@ Window {
         anchors.centerIn: parent
         color: "#333333"
         opacity: 0.0
+        searchItems: [{name: "Inception", posterURL: "images/Inception.jpg"},{name: "Titanic", posterURL: "images/Titanic.jpg"}, {name: "Tangled", posterURL: "images/Tangled.jpg"},{name: "The Dark Knight", posterURL: "images/DarkKnight.jpg"},{name: "Frozen", posterURL: "images/Frozen.jpg"}, {name: "Black Swan", posterURL: "images/BlackSwan.jpg"}, {name: "Anchorman", posterURL: "images/Anchorman.jpg"}, {name: "Aladdin", posterURL: "images/Aladdin.jpg"}]
     }
 
     Guide {
@@ -228,9 +239,8 @@ Window {
         color: "#333333"
         mediaType: newMediaType
         opacity: 0.0
-        recentsElements: [{name: "The Lego Movie", posterURL: "images/LegoMovie.jpg"},{name: "The Lion King", posterURL: "images/LionKing.jpg"},{name: "Star Trek Into Darkness", posterURL: "images/StarTrek.jpg"},{name: "The Avengers", posterURL: "images/Avengers.jpg"},{name: "V For Vendetta", posterURL: "images/VForVendetta.jpg"},{name: "Les Miserables", posterURL: "images/LesMis.jpg"},{name: "Wreck-It Ralph", posterURL: "images/Ralph.jpg"},{name: "We're The Millers", posterURL: "images/Millers.jpg"},]
+        recentsElements: [{name: "The Lego Movie", posterURL: "images/LegoMovie.jpg"},{name: "The Lion King", posterURL: "images/LionKing.jpg"},{name: "Star Trek Into Darkness", posterURL: "images/StarTrek.jpg"},{name: "The Avengers", posterURL: "images/Avengers.jpg"},{name: "V For Vendetta", posterURL: "images/VForVendetta.jpg"},{name: "Les Miserables", posterURL: "images/LesMis.jpg"},{name: "Wreck-It Ralph", posterURL: "images/Ralph.jpg"},{name: "We're The Millers", posterURL: "images/Millers.jpg"}]
         topRatedElements: [{name: "Inception", posterURL: "images/Inception.jpg"},{name: "Titanic", posterURL: "images/Titanic.jpg"}, {name: "Tangled", posterURL: "images/Tangled.jpg"},{name: "The Dark Knight", posterURL: "images/DarkKnight.jpg"},{name: "Frozen", posterURL: "images/Frozen.jpg"}, {name: "Black Swan", posterURL: "images/BlackSwan.jpg"}, {name: "Anchorman", posterURL: "images/Anchorman.jpg"}, {name: "Aladdin", posterURL: "images/Aladdin.jpg"}]
         newReleasesElements: [{name: "Interstellar", posterURL: "images/Interstellar.jpg"},{name: "Neighbors", posterURL: "images/Neighbors.jpg"},{name: "Godzilla", posterURL: "images/Godzilla.jpg"},{name: "The Hunger Games", posterURL: "images/HungerGames.jpg"},{name: "We're The Millers", posterURL: "images/Millers.jpg"},{name: "The Grand Budapest Hotel", posterURL: "images/GrandBudapest.jpg"},{name: "Big Hero 6", posterURL: "images/BigHero6.jpg"},{name: "Gone Girl", posterURL: "images/GoneGirl.jpg"}]
     }
-
 }

@@ -5,12 +5,21 @@ Rectangle {
     property string title: ""
     property string service: ""
     property string imageURL: ""
+    property bool selected: false
+
+    border.color: "white"
+    border.width: selected ? .5 : 0
+    radius: 5
 
     Image {
         id: iImage
-        source: "./images/" + iSearchResult.imageURL
+        source: iSearchResult.imageURL
         anchors.top: parent.top
+        anchors.topMargin: 10
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
+        anchors.left: parent.left
+        anchors.leftMargin: 10
         fillMode: Image.PreserveAspectFit
     }
 

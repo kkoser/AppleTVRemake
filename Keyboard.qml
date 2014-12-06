@@ -9,11 +9,19 @@ Rectangle {
     property alias keybaordEnabled: iGrid.focus
     property bool showSelectButton: true
     property bool allowsScrollingOff: false
+    property bool showSelector: true
 
     signal letterClicked(string letter)
     signal submitClicked()
     signal deleteClicked()
     signal cursorMovedOffRight()
+
+    function enterFromRight() {
+        console.log("Entering from right");
+        selectedKey -= 1;
+    }
+
+    onSelectedKeyChanged: console.log(selectedKey);
 
     width: 360
     height: 500
@@ -88,7 +96,7 @@ Rectangle {
                 style: ButtonStyle {
                     background: Rectangle {
                         color: "#333333"
-                        border.width: selected ? .5 : 0
+                        border.width: (selected && showSelector) ? .5 : 0
                         border.color: "white"
                         radius: 5
                     }
@@ -120,7 +128,7 @@ Rectangle {
         style: ButtonStyle {
             background: Rectangle {
                 color: "#333333"
-                border.width: selectedKey === keys.length + 2
+                border.width: showSelector && selectedKey === keys.length + 2
                 border.color: "white"
                 radius: 5
             }
