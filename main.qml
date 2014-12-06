@@ -157,10 +157,16 @@ Window {
             State {
                 name: "BROWSE_TV"
                 PropertyChanges {
+                    target: iRoot; focus: false
+                }
+                PropertyChanges {
                     target: iScreenGuide; opacity: 0.0
                 }
                 PropertyChanges {
-                    target: iScreenMovies; opacity: 1.0
+                    target: iScreenMovies; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenTV; opacity: 1.0; focus:true
                 }
                 PropertyChanges {
                     target: iScreenDetail; opacity: 0.0
@@ -187,10 +193,16 @@ Window {
             State {
                 name: "BROWSE_MUSIC"
                 PropertyChanges {
+                    target: iRoot; focus: false
+                }
+                PropertyChanges {
                     target: iScreenGuide; opacity: 0.0
                 }
                 PropertyChanges {
-                    target: iScreenMovies; opacity: 1.0
+                    target: iScreenMovies; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenMusic; opacity: 1.0; focus: true
                 }
                 PropertyChanges {
                     target: iScreenDetail; opacity: 0.0
@@ -237,5 +249,29 @@ Window {
         recentsElements: [{name: "The Lego Movie", posterURL: "images/LegoMovie.jpg"},{name: "The Lion King", posterURL: "images/LionKing.jpg"},{name: "Star Trek Into Darkness", posterURL: "images/StarTrek.jpg"},{name: "The Avengers", posterURL: "images/Avengers.jpg"},{name: "V For Vendetta", posterURL: "images/VForVendetta.jpg"},{name: "Les Miserables", posterURL: "images/LesMis.jpg"},{name: "Wreck-It Ralph", posterURL: "images/Ralph.jpg"},{name: "We're The Millers", posterURL: "images/Millers.jpg"}]
         topRatedElements: [{name: "Inception", posterURL: "images/Inception.jpg"},{name: "Titanic", posterURL: "images/Titanic.jpg"}, {name: "Tangled", posterURL: "images/Tangled.jpg"},{name: "The Dark Knight", posterURL: "images/DarkKnight.jpg"},{name: "Frozen", posterURL: "images/Frozen.jpg"}, {name: "Black Swan", posterURL: "images/BlackSwan.jpg"}, {name: "Anchorman", posterURL: "images/Anchorman.jpg"}, {name: "Aladdin", posterURL: "images/Aladdin.jpg"}]
         newReleasesElements: [{name: "Interstellar", posterURL: "images/Interstellar.jpg"},{name: "Neighbors", posterURL: "images/Neighbors.jpg"},{name: "Godzilla", posterURL: "images/Godzilla.jpg"},{name: "The Hunger Games", posterURL: "images/HungerGames.jpg"},{name: "We're The Millers", posterURL: "images/Millers.jpg"},{name: "The Grand Budapest Hotel", posterURL: "images/GrandBudapest.jpg"},{name: "Big Hero 6", posterURL: "images/BigHero6.jpg"},{name: "Gone Girl", posterURL: "images/GoneGirl.jpg"}]
+    }
+
+    Browse {
+        id: iScreenTV
+        anchors.fill: parent
+        anchors.centerIn: parent
+        color: "#333333"
+        mediaType: newMediaType
+        opacity: 0.0
+        recentsElements: [{name: "Sherlock", posterURL: "images/Sherlock.jpg"},{name: "30 Rock", posterURL: "images/30Rock.jpg"},{name: "Pokemon XY", posterURL: "images/Pokemon.jpg"},{name: "Top Gear", posterURL: "images/TopGear.jpg"},{name: "White Collar", posterURL: "images/WhiteCollar.jpg"},{name: "The Simpsons", posterURL: "images/TheSimpsons.jpg"},{name: "The Office", posterURL: "images/TheOffice.jpg"},{name: "Portlandia", posterURL: "images/Portlandia.jpg"}]
+        topRatedElements: [{name: "Once Upon A Time", posterURL: "images/OnceUponATime.jpg"},{name: "The Legend of Korra", posterURL: "images/Korra.jpg"}, {name: "Game of Thrones", posterURL: "images/GameOfThrones.jpg"},{name: "Burn Notice", posterURL: "images/BurnNotice.jpg"},{name: "Arrow", posterURL: "images/Arrow.jpg"}, {name: "Arrested Development", posterURL: "images/ArrestedDevelopment.jpg"}, {name: "The X Files", posterURL: "images/XFiles.jpg"}, {name: "Mad Men", posterURL: "images/MadMen.jpg"}]
+        newReleasesElements: [{name: "Breaking Bad", posterURL: "images/BreakingBad.jpg"},{name: "House of Cards", posterURL: "images/HouseOfCards.jpg"},{name: "The West Wing", posterURL: "images/WestWing.jpg"},{name: "Lost", posterURL: "images/Lost.jpg"},{name: "Firefly", posterURL: "images/Firefly.jpg"},{name: "Heroes", posterURL: "images/Heroes.jpg"},{name: "Merlin", posterURL: "images/Merlin.jpg"},{name: "Fringe", posterURL: "images/Fringe.jpg"}]
+    }
+
+    Browse {
+        id: iScreenMusic
+        anchors.fill: parent
+        anchors.centerIn: parent
+        color: "#333333"
+        mediaType: newMediaType
+        opacity: 0.0
+        recentsElements: [{name: "1989", posterURL: "images/1989.jpg"},{name: "X & Y", posterURL: "images/XY.jpg"},{name: "Port of Morrow", posterURL: "images/PortOfMorrow.jpg"},{name: "AM", posterURL: "images/AM.jpg"},{name: "Whispers", posterURL: "images/Whispers.jpg"},{name: "Midnight Memories", posterURL: "images/MidnightMemories.jpg"},{name: "Of Monsters and Men", posterURL: "images/OfMonstersAndMen.jpg"},{name: "Pure Heroine", posterURL: "images/PureHeroine.jpg"}]
+        topRatedElements: [{name: "Born To Die", posterURL: "images/BornToDie.jpg"},{name: "Night Visions", posterURL: "images/NightVisions.jpg"}, {name: "Recovery", posterURL: "images/Recovery.jpg"},{name: "X", posterURL: "images/X.jpg"},{name: "Drake", posterURL: "images/Drake.jpg"}, {name: "Dark Side of the Moon", posterURL: "images/Darkside.jpg"}, {name: "Ghost Stories", posterURL: "images/GhostStories.jpg"}, {name: "Beyonce", posterURL: "images/Beyonce.jpg"}]
+        newReleasesElements: [{name: "My Everything", posterURL: "images/MyEverything.jpg"},{name: "Awesome Wave", posterURL: "images/AwesomeWave.jpg"},{name: "Conditions", posterURL: "images/Conditions.jpg"},{name: "The Bones of What You Believe", posterURL: "images/TheBonesOfWhatYouBelieve.jpg"},{name: "blink-182", posterURL: "images/Blink182.jpg"},{name: "Modern Vampires Of The City", posterURL: "images/ModernVampiresOfTheCity.jpg"},{name: "Elephant Shell", posterURL: "images/ElephantShell.jpg"},{name: "Drops Of Jupiter", posterURL: "images/DropsOfJupiter.jpg"}]
     }
 }

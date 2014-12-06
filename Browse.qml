@@ -159,7 +159,7 @@ Rectangle {
                       return "Recently Used"
                   else return "Recently Watched"
         elements: iBrowse.recentsElements
-        isSquare: false
+        isSquare: mediaType === "Music" ? true : false
         selectedIndex: recentsSelectedIndex
     }
     BrowseRow {
@@ -169,7 +169,7 @@ Rectangle {
         x: 0.05*parent.width
         rowLabel: "Top Rated"
         elements: iBrowse.topRatedElements
-        isSquare: false
+        isSquare: mediaType === "Music" ? true : false
         selectedIndex: topRatedSelectedIndex
     }
 
@@ -180,7 +180,7 @@ Rectangle {
         x: 0.05*parent.width
         rowLabel: "New Releases"
         elements: iBrowse.newReleasesElements
-        isSquare: false
+        isSquare: mediaType === "Music" ? true : false
         selectedIndex: newReleasesSelectedIndex
 
     }
