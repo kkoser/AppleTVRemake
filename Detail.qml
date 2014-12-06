@@ -19,6 +19,17 @@ Rectangle {
         }
         else if(event.key === Qt.Key_Space)
             iEpisodeListView.currentIndex += 1;
+
+        if(itemInfo["mediaType"] !== "Movie") {
+            switch(event.key) {
+            case Qt.Key_Up:
+                iEpisodeListView.currentIndex -= 1;
+                break;
+            case Qt.Key_Down:
+                iEpisodeListView.currentIndex += 1;
+                break;
+            }
+        }
     }
 
     Behavior on opacity {
@@ -266,6 +277,8 @@ Rectangle {
         anchors.rightMargin: 20
         anchors.top: iDescriptionBottom.bottom
         anchors.topMargin: 10
+        visible: iDetail.itemInfo["mediaType"] !== "Movie"
+
     }
 
     Item {
