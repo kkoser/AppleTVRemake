@@ -8,7 +8,13 @@ Rectangle {
 
     signal back();
 
-    Keys.onPressed: if(event.key === Qt.Key_Escape) {console.log("Detail back"); iDetail.back();}
+    Keys.onPressed: {
+        if(event.key == Qt.Key_G)
+            iRoot.state = "GUIDE"
+        if(event.key === Qt.Key_Escape) {
+            console.log("Detail back"); iDetail.back();
+        }
+    }
 
     Behavior on opacity {
         NumberAnimation { duration: 200 }

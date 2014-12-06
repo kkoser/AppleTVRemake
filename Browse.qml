@@ -20,6 +20,16 @@ Rectangle {
     // back to the guide menu
     property bool stateReady: true
 
+    // This ensures that the detail screen has focus if we come back into
+    // this screen from guide with the detail still up.
+    // Otherwise, both have focus, and key events get caught twice.
+    onFocusChanged: {
+        if(state == "DETAIL" && focus) {
+            focus = false;
+            iScreenDetail.focus = true;
+        }
+    }
+
     Behavior on opacity {
         NumberAnimation { duration: 200 }
     }
