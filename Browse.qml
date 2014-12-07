@@ -51,6 +51,8 @@ Rectangle {
     }
 
     Keys.onPressed: {
+        if(event.key == Qt.Key_G)
+            iRoot.setState("GUIDE");
         switch(event.key) {
         case Qt.Key_Left:
             overallSelectedIndex = moveLeft(overallSelectedIndex);
@@ -167,7 +169,7 @@ Rectangle {
         anchors.top: iRecentsRow.bottom
         anchors.topMargin: 75
         x: 0.05*parent.width
-        rowLabel: "Top Rated"
+        rowLabel: "New Releases"
         elements: iBrowse.topRatedElements
         isSquare: mediaType === "Music" ? true : false
         selectedIndex: topRatedSelectedIndex
@@ -178,7 +180,7 @@ Rectangle {
         anchors.top: iTopRatedRow.bottom
         anchors.topMargin: 75
         x: 0.05*parent.width
-        rowLabel: "New Releases"
+        rowLabel: "Top Rated"
         elements: iBrowse.newReleasesElements
         isSquare: mediaType === "Music" ? true : false
         selectedIndex: newReleasesSelectedIndex

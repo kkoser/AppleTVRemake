@@ -34,6 +34,8 @@ Rectangle {
     property bool stateReady: true
 
     Keys.onPressed: {
+        if(event.key == Qt.Key_G)
+            iRoot.setState("GUIDE");
         if(state === "DETAIL")
             return;
         if(event.key === Qt.Key_Escape && iSearch.stateReady)
@@ -153,6 +155,10 @@ Rectangle {
             iSearch.typing = false;
         }
 
+        onSubmitClicked: {
+            iVoiceSearch.visible = true;
+        }
+
         onKeybaordEnabledChanged: console.log("Keyboard entered state: " + keybaordEnabled);
     }
 
@@ -233,6 +239,33 @@ Rectangle {
         opacity: 0.0
         onBack: iSearch.state = "SEARCH"
         itemInfo: searchResults[iResultsListView.currentIndex]
+    }
+
+    Rectangle {
+        id: iVoiceSearch
+        anchors.centerIn: parent
+        width: parent.width/2
+        height: parent.height/2
+        visible: false
+        color: Qt.darker("#333333")
+        radius: 5
+
+        onVisibleChanged: {
+            if(visible)
+                iVoiceSearchTimer.start();
+        }
+        TextWithFont {
+            text: "Please speak your search term"
+            anchors.centerIn: parent
+            font.pixelSize: 30
+        }
+
+        Timer {
+            id: iVoiceSearchTimer
+            repeat: false
+            interval: 500
+            onTriggered: iVoiceSearch.visible = false;
+        }
     }
 
 }

@@ -93,5 +93,6 @@
         <file>images/Beyonce.jpg</file>
         <file>Settings.qml</file>
         <file>Apps.qml</file>
+        <file>images/Settings.jpg</file>
     </qresource>
 </RCC>

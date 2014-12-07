@@ -17,6 +17,8 @@ Rectangle {
         if(event.key === Qt.Key_Escape) {
             console.log("Detail back"); iDetail.back();
         }
+        else if(event.key === Qt.Key_Return)
+            iVoiceSearch.visible = true;
 
         if(itemInfo["mediaType"] !== "Movie") {
             switch(event.key) {
@@ -66,7 +68,7 @@ Rectangle {
     }
 
     TextWithFont {
-        text: "The Lego Movie is really good and is about a group of Legos who do awesome"
+        text: "Details about your chosen media would appear here."
         anchors.top: parent.top
         anchors.topMargin: 125
         anchors.left: parent.left
@@ -75,7 +77,7 @@ Rectangle {
     }
     TextWithFont {
         id: iDescriptionBottom
-        text: "stuff. It's funny sometimes and has Batman in it. Also, spaceships."
+        text: "A description and some fun facts would probably be present."
         anchors.top: parent.top
         anchors.topMargin: 155
         anchors.left: parent.left
@@ -372,5 +374,30 @@ Rectangle {
            font.pixelSize: 20
            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
        }
+    }
+
+    Rectangle {
+        id: iVoiceSearch
+        anchors.fill: parent
+        visible: false
+        color: Qt.darker("#333333")
+        radius: 5
+
+        onVisibleChanged: {
+            if(visible)
+                iVoiceSearchTimer.start();
+        }
+        TextWithFont {
+            text: "Your media is now playing :)"
+            anchors.centerIn: parent
+            font.pixelSize: 30
+        }
+
+        Timer {
+            id: iVoiceSearchTimer
+            repeat: false
+            interval: 5000
+            onTriggered: iVoiceSearch.visible = false;
+        }
     }
 }
