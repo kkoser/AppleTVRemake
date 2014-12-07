@@ -40,8 +40,15 @@ Rectangle {
             iRoot.setState("GUIDE");
         else if(event.key === Qt.Key_Escape)
             iSearch.stateReady = true;
-        else if(event.key === Qt.Key_Return && iResultsListView.currentIndex >= 0)
-            state = "DETAIL"
+        else if(event.key === Qt.Key_Return && iResultsListView.currentIndex >= 0) {
+//            if(searchResults[iResultsListView.currentIndex]["name"] === "Settings") {
+//                iRoot.setState("SETTINGS");
+//                console.log("Moving to settings");
+//            }
+
+//            else
+                state = "DETAIL"
+        }
 
         if( iResultsListView.currentIndex >= 0) {
             switch(event.key) {

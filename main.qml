@@ -55,6 +55,8 @@ Window {
                 newState = "SEARCH";
             else if(event.key === Qt.Key_W)
                 newState = "WELCOME";
+            else if(event.key === Qt.Key_S)
+                newState = "SETTINGS"
 
             setState(newState);
 
@@ -73,10 +75,10 @@ Window {
                     target: iScreenWelcome; opacity: 0.0
                 }
                 PropertyChanges {
-                    target: iScreenDetail; opacity: 0.0
+                    target: iRoot; focus: true
                 }
                 PropertyChanges {
-                    target: iRoot; focus: true
+                    target: iScreenSettings; opacity: 0.0
                 }
             },
             State {
@@ -89,27 +91,6 @@ Window {
                 }
                 PropertyChanges {
                     target: iScreenWelcome; opacity: 1.0; focus: true
-                }
-                PropertyChanges {
-                    target: iScreenDetail; opacity: 0.0
-                }
-                PropertyChanges {
-                    target: iRoot; focus: false
-                }
-            },
-            State {
-                name: "DETAIL"
-                PropertyChanges {
-                    target: iScreenGuide; opacity: 0.0
-                }
-                PropertyChanges {
-                    target: iScreenBrowse; opacity: 0.0
-                }
-                PropertyChanges {
-                    target: iScreenWelcome; opacity: 0.0
-                }
-                PropertyChanges {
-                    target: iScreenDetail; opacity: 1.0; focus: true
                 }
                 PropertyChanges {
                     target: iRoot; focus: false
@@ -125,9 +106,6 @@ Window {
                 }
                 PropertyChanges {
                     target: iScreenSearch; opacity: 1.0; focus: true
-                }
-                PropertyChanges {
-                    target: iScreenDetail; opacity: 0.0
                 }
                 PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
@@ -148,9 +126,6 @@ Window {
                     target: iScreenMovies; opacity: 1.0; focus: true
                 }
                 PropertyChanges {
-                    target: iScreenDetail; opacity: 0.0
-                }
-                PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
                 }
             },
@@ -169,9 +144,6 @@ Window {
                     target: iScreenTV; opacity: 1.0; focus:true
                 }
                 PropertyChanges {
-                    target: iScreenDetail; opacity: 0.0
-                }
-                PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
                 }
             },
@@ -182,9 +154,6 @@ Window {
                 }
                 PropertyChanges {
                     target: iScreenMovies; opacity: 0.0
-                }
-                PropertyChanges {
-                    target: iScreenDetail; opacity: 0.0
                 }
                 PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
@@ -211,10 +180,28 @@ Window {
                     target: iScreenMusic; opacity: 1.0; focus: true
                 }
                 PropertyChanges {
-                    target: iScreenDetail; opacity: 0.0
+                    target: iScreenWelcome; opacity: 0.0
+                }
+            },
+            State {
+                name: "SETTINGS"
+                PropertyChanges {
+                    target: iRoot; focus: false
+                }
+                PropertyChanges {
+                    target: iScreenGuide; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenMovies; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenMusic; opacity: 0.0
                 }
                 PropertyChanges {
                     target: iScreenWelcome; opacity: 0.0
+                }
+                PropertyChanges {
+                    target: iScreenSettings; opacity: 1.0; focus: true
                 }
             }
         ]
@@ -226,7 +213,7 @@ Window {
         anchors.centerIn: parent
         color: "#333333"
         opacity: 0.0
-        searchItems: iScreenMovies.recentsElements.concat(iScreenMovies.topRatedElements).concat(iScreenMovies.newReleasesElements).concat(iScreenTV.recentsElements).concat(iScreenTV.topRatedElements).concat(iScreenTV.newReleasesElements).concat(iScreenMusic.recentsElements).concat(iScreenMusic.topRatedElements).concat(iScreenMusic.newReleasesElements)
+        searchItems: iScreenMovies.recentsElements.concat(iScreenMovies.topRatedElements).concat(iScreenMovies.newReleasesElements).concat(iScreenTV.recentsElements).concat(iScreenTV.topRatedElements).concat(iScreenTV.newReleasesElements).concat(iScreenMusic.recentsElements).concat(iScreenMusic.topRatedElements).concat(iScreenMusic.newReleasesElements).concat([{name: "Settings", posterURL: "images/Settings.jpg", mediaType: "Movie"}]);
         //searchItems: [{name: "Inception", posterURL: "images/Inception.jpg"},{name: "Titanic", posterURL: "images/Titanic.jpg"}, {name: "Tangled", posterURL: "images/Tangled.jpg"},{name: "The Dark Knight", posterURL: "images/DarkKnight.jpg"},{name: "Frozen", posterURL: "images/Frozen.jpg"}, {name: "Black Swan", posterURL: "images/BlackSwan.jpg"}, {name: "Anchorman", posterURL: "images/Anchorman.jpg"}, {name: "Aladdin", posterURL: "images/Aladdin.jpg"}]
     }
 
@@ -284,6 +271,14 @@ Window {
 
     Apps {
         id: iScreenApps
+        anchors.fill: parent
+        anchors.centerIn: parent
+        color: "#333333"
+        opacity: 0.0
+    }
+
+    Settings {
+        id: iScreenSettings
         anchors.fill: parent
         anchors.centerIn: parent
         color: "#333333"

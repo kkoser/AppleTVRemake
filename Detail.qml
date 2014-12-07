@@ -17,8 +17,6 @@ Rectangle {
         if(event.key === Qt.Key_Escape) {
             console.log("Detail back"); iDetail.back();
         }
-        else if(event.key === Qt.Key_Space)
-            iEpisodeListView.currentIndex += 1;
 
         if(itemInfo["mediaType"] !== "Movie") {
             switch(event.key) {
