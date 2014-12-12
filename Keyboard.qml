@@ -18,7 +18,7 @@ Rectangle {
 
     function enterFromRight() {
         console.log("Entering from right");
-        selectedKey -= 1;
+        //selectedKey -= 1;
     }
 
     onSelectedKeyChanged: console.log(selectedKey);
@@ -41,7 +41,7 @@ Rectangle {
         Keys.onPressed: {
             switch(event.key) {
             case Qt.Key_Left:
-                if(selectedKey == keys.length +1)
+                if(selectedKey === keys.length + 2)
                     break; //Submit button, so cant go left or right
                 var col = selectedKey % columns;
                 if(col <= 0)
@@ -50,7 +50,7 @@ Rectangle {
                     selectedKey--;
                 break;
             case Qt.Key_Right:
-                if(selectedKey == keys.length +1)
+                if(selectedKey === keys.length + 2)
                     break; //Submit button, so cant go left or right
                 var col = selectedKey % columns;
                 if(col >= columns - 1) {
