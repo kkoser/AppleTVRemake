@@ -6,7 +6,7 @@ Rectangle {
     id: iSearch
 
     property int selectedResult: -1
-    property variant searchResults: searchItems
+    property variant searchResults:[]
     property variant searchItems
     property bool typing: true
 
@@ -263,7 +263,7 @@ Rectangle {
         Timer {
             id: iVoiceSearchTimer
             repeat: false
-            interval: 500
+            interval: 1500
             onTriggered: iVoiceSearch.visible = false;
         }
     }
